@@ -2,8 +2,12 @@
   <div class="row">
     <div class="col-12 pt-3 pb-3 mb-4 border-bottom">
       <div class="float-end">
-        <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
-        <%= link_to "新規登録", new_user_session_path, class: "btn btn-primary" %>
+        <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary" %>
+        <% end %>
       </div>
       <p class="h3">Reddit Clone</p>
     </div>
