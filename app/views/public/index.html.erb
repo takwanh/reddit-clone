@@ -1,2 +1,43 @@
-<h1>Public#index</h1>
-<p>Find me in app/views/public/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+     <p class="h5">トレンド</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      トレンド１
+    </div>
+    <div class="col-sm-3">
+      トレンド２
+    </div>
+    <div class="col-sm-3">
+      トレンド３
+    </div>
+    <div class="col-sm-3">
+      トレンド４
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col">
+      <p class="h4">人気の投稿</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      left
+    </div>
+    <div class="col-4">
+      <p class="h5 mb-2">communities</p>
+
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+      </div>
+      <%= link_to "すべて見る", "", class: "btn btn-primary mt-3"%>
+    </div>
+  </div>
+</div>
