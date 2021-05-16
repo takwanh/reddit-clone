@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'public/index'
+  resources :communities
   root to: "public#index"
 end
