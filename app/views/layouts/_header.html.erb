@@ -1,9 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 pt-3 pb-3 mb-4 border-bottom">
+    <div class="col-12 pt-3 pb-3 border-bottom">
       <div class="float-end">
         <% if user_signed_in? %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= current_user.full_name%>
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <%= link_to "プロフィール", profile_path(current_user.username), class: "dropdown-item" %>
+              <%= link_to "設定", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </ul>
+          </div>
         <% else %>
           <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
           <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary" %>

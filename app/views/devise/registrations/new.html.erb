@@ -9,6 +9,25 @@
   </div>
 
   <div class="mb-3 col-md-6 offset-md-3">
+    <%= f.label :username, class: "form-label" %><br />
+    <%= f.text_field :username, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 col-md-6 offset-md-3">
+    <%= f.label :first_name, class: "form-label" %><br />
+    <%= f.text_field :first_name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 col-md-6 offset-md-3">
+    <%= f.label :last_name, class: "form-label" %><br />
+    <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+  <% end %>
+
+  <div class="mb-3 col-md-6 offset-md-3">
     <%= f.label :password, class: "form-label" %>
     <% if @minimum_password_length %>
     <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>

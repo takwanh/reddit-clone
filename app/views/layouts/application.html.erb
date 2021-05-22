@@ -12,13 +12,25 @@
 
   <body>
     <%= render partial: "layouts/header" %>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <%= yield %>
-        </div>
+    <div class="bg-light">
+      <div class="container">
+        <% if notice %>
+          <p class="notice alert alert-success mb-0"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger mb-0"><%= alert %></p>
+        <% end %>
       </div>
     </div>
+    <section class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 pt-4">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </section>
     <%= render partial: "layouts/footer" %>
   </body>
 </html>
