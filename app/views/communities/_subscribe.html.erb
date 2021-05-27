@@ -1,0 +1,4 @@
+<%= form_with model: @subscription, remote: true do |f| %>
+  <%= f.hidden_field :community_id, value: community_id %>
+  <%= f.submit "コミュニティに参加", class: "btn btn-success float-end"%>
+<% end %>

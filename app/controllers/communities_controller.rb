@@ -12,6 +12,9 @@ class CommunitiesController < ApplicationController
   def show
     @community = Community.find(params[:id])
     @posts = @community.posts
+    @subscriber_count = @community.subscribers.count
+    @is_subscribed = user_signed_in? ? Subscription.where(community_id: @community.id, user_id: current_user.id).any? : false
+    @subscription = Subscription.new
   end
 
   def create
@@ -26,7 +29,7 @@ class CommunitiesController < ApplicationController
 
   private
     def community_params
-      params.require(:community).permit(:name, :url, :description)
+      params.require(:community).permit(:name, :url, :summary, :description)
     end
 
 

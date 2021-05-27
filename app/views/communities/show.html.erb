@@ -1,12 +1,27 @@
-<%= link_to "ポストの作成", new_community_post_path(@community), class: "btn btn-primary float-end" %>
-
-<h3><%= @community.name %></h3>
+<div class="row mb-4">
+  <div class="col-sm-8">
+    <h3><%= @community.name %></h3>
+  </div>
+  <div class="col-sm-4">
+    <% if @is_subscribed %>
+      <%= render partial: "communities/unsubscribe", locals: { community_id: @community.id} %>
+      <%= link_to "ポストの作成", new_community_post_path(@community), class: "btn btn-primary float-end me-2" %>
+      <% else %>
+        <%= render partial: "communities/subscribe", locals: { community_id: @community.id }%>
+      <% end %>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-sm-8">
     <%= render partial: "posts/list", locals: {posts: @posts} %>
   </div>
   <div class="col-sm-4">
+    <div class="card p-3">
+      <p class="h5">コミュニティ概要</p>
+      <p class="mt-2"><%= @community.summary %></p>
+      <p>登録者数: <%= @subscriber_count %></p>
+    </div>
     <small>
       <%= simple_format @community.description %>
     </small>

@@ -1,0 +1,4 @@
+<%= form_with model: current_user.subscriptions.find_by(community_id: @community.id),
+             html: { method: :delete }, remote: true do |f| %>
+  <%= f.submit "コミュニティを退会する", class: "btn btn-secondary float-end" %>
+<% end %>
