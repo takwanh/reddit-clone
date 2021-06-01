@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :posts
   end
   resources :subscriptions
+  resources :comments, only: [:create, :destroy, :update, :edit]
   root to: "public#index"
 end
