@@ -8,6 +8,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
+import '@fortawesome/fontawesome-free/js/all';
+
+require("../includes/vote.js")
 
 Rails.start()
 Turbolinks.start()
