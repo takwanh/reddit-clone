@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-1 text-center">
-    <div id="vote-actions-<%= @post.id %>" class="vote" data-id="<%= @post.id %>">
+    <div id="vote-actions-<%= @post.id %>" class="vote" data-id-type='["<%= @post.id %>", "<%= @post.class %>"]'">
       <div class="fas fa-arrow-up upvote <%= is_upvoted(@post) %>"></div>
       <span class="fw-bold score"><%= @post.score %></span>
       <div class="fas fa-arrow-down downvote <%= is_downvoted(@post) %>"></div>
@@ -16,7 +16,7 @@
 
     <% if user_signed_in? %>
       <h5>コメントを残す</h5>
-      <%= form_with model: @comment do |f| %>
+      <%= form_with model: @comment, local: false do |f| %>
         <%= f.hidden_field :post_id, value: @post.id %>
         <%= f.text_area :message, class: "form-control", id: "comment-form" %>
         <%= f.submit "コメントを投稿する", class: "btn btn-success mt-3" %>

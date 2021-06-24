@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :subscriptions
   has_many :communities, through: :subscriptions
   has_many :posts
-  has_many :comments
-  has_many :votes
+  has_many :comments, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   validates_presence_of :first_name, :last_name, :username
 
@@ -15,11 +15,11 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def upvoted_post_ids
-    self.votes.where(upvote: true).pluck(:post_id)
+  def upvoted_things
+    self.votes.where(upvote: true).pluck(:votable_id, :votable_type)
   end
 
-  def downvoted_post_ids
-    self.votes.where(upvote: false).pluck(:post_id)
+  def downvoted_things
+    self.votes.where(upvote: false).pluck(:votable_id, :votable_type)
   end
 end

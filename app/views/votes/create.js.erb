@@ -1,11 +1,11 @@
-$("#vote-actions-<%= @post.id %> .score").text("<%= @post.score %>");
+$("#vote-actions-<%= @instance.id %> .score").text("<%= @instance.score %>");
 
-$("#vote-actions-<%= @post.id %> .downvote, #vote-actions-<%= @post.id %> .upvote").removeClass("active");
+$("#vote-actions-<%= @instance.id %> .downvote, #vote-actions-<%= @instance.id %> .upvote").removeClass("active");
 
 <% if @new_vote %>
   <% if @is_upvote == "true" %>
-    $("#vote-actions-<%= @post.id %> .upvote").addClass("active");
+    $("#vote-actions-<%= @instance.id %> .upvote").addClass("active");
   <% else %>
-    $("#vote-actions-<%= @post.id %> .downvote").addClass("active");
+    $("#vote-actions-<%= @instance.id %> .downvote").addClass("active");
   <% end %>
 <% end %>

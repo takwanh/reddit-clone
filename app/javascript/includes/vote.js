@@ -1,13 +1,16 @@
 $(function(){
   
   $(".vote").on("click", ".upvote, .downvote", function(){
-    var post_id = $(this).parent().data("id"),
+    var votable_id_and_type = $(this).parent().data("id-type"),
+        votable_id = votable_id_and_type[0],
+        votable_type = votable_id_and_type[1],
         is_update = $(this).hasClass("upvote");
+        console.log(votable_id_and_type)
 
     $.ajax({
       url: "/post/vote",
       method: "POST",
-      data: { post_id: post_id, upvote: is_update },
+      data: { votable_id: votable_id, votable_type: votable_type, upvote: is_update },
       success: function(){
         console.log("success");
       }

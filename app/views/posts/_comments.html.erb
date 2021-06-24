@@ -1,14 +1,24 @@
 <% comments.each do |comment|%>
   <div class="comment mb-2" id="comment-<%= comment.id%>">
     <div class="card">
-      <%= link_to comment.user.full_name, profile_path(comment.user.username) %>
-      <%= simple_format comment.message, class: "mb-0 p-1"%>
-      <% if current_user && comment.user.id == current_user.id %>
-        <div class="edit-delete-comment">
-          <%= link_to "編集", edit_comment_path(comment), remote: true %>
-          <%= link_to "削除", comment, method: :delete, data: { confirm: "削除してもよろしいですか？"}, remote: true %>
+      <div class="row">
+        <div class="col-1 text-center">
+          <div id="vote-actions-<%= comment.id %>" class="vote" data-id-type='["<%= comment.id %>", "<%= comment.class %>"]'>
+            <div class="fas fa-arrow-up upvote <%= is_upvoted(comment) %>"></div>
+            <span class="fw-bold score"><%= comment.score %></span>
+            <div class="fas fa-arrow-down downvote <%= is_downvoted(comment) %>"></div>
+          </div>
         </div>
-      <% end %>
+        <div class="col-11">
+          <%= link_to comment.user.full_name, profile_path(comment.user.username) %>
+          <%= simple_format comment.message, class: "mb-0 p-1"%>
+          <% if current_user && comment.user.id == current_user.id %>
+            <div class="edit-delete-comment">
+              <%= link_to "編集", edit_comment_path(comment), remote: true %>
+              <%= link_to "削除", comment, method: :delete, data: { confirm: "削除してもよろしいですか？"}, remote: true %>
+            </div>
+          <% end %>
+        </div>
     </div>
   </div>
 <% end %>
