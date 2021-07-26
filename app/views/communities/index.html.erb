@@ -1,12 +1,18 @@
-<% if user_signed_in?%>
-  <div class="float-end">
-    <%= link_to "コミュニティを作成する", new_community_path, class: "btn btn-primary"%>
+<div class="row justify-content-between">
+  <div class="col-7">
+    <% @communities.each do |community| %>
+    <div class="card mb-3 p-3">
+      <h3><%= link_to community.name, community %></h3>
+      <%= simple_format community.description %>
+    </div>
+    <% end %>
   </div>
-<% end %>
-
-<% @communities.each do |community| %>
-<div class="card">
-  <h3><%= link_to community.name, community %></h3>
-  <%= simple_format community.description %>
+  <div class="col-3">
+    <% if user_signed_in?%>
+      <div class="float-end">
+        <%= link_to "コミュニティを作成する", new_community_path, class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
 </div>
-<% end %>
+
