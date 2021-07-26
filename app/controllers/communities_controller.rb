@@ -6,7 +6,8 @@ class CommunitiesController < ApplicationController
   end
 
   def index
-    @communities = Community.all
+    @q = Community.ransack(params[:q])
+    @communities = @q.result(distinct: true).page(params[:page])
   end
 
   def show
