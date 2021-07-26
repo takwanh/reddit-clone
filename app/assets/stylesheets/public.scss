@@ -1,3 +1,25 @@
 // Place all the styles related to the public controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.top-description{
+  &-image{
+    background-image: url("man-laptop.jpg");
+    background-size: auto;
+    background-repeat:  no-repeat;
+    background-position:center center;
+    height: 650px;
+  }
+  &-title{
+    font-size: 2rem;
+    &-head{
+      font-size: 3rem;
+      font-weight: bolder;
+      color: #F8B44E;
+    }
+  }
+}
+
+.text-border{
+  border-bottom: solid 1px;
+}
