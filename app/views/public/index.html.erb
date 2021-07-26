@@ -12,15 +12,15 @@
           <span class="text-border">でも書き込んでみよう！</span>
         </div>
         <div class="text-center mt-5">
-          今日の夜の晩ご飯からハッキングまで、話したいことは何でも掲示板に投稿してみよう！何か新しい知識やヒントが得られるかも！
+          <p>今日の夜の晩ご飯からハッキングまで、話したいことは何でも掲示板に投稿してみよう！何か新しい知識やヒントが得られるかも！</p> 
         </div>
         <div class="row text-center mt-5">
           <div class="col">
-            新規登録の方
+            <p>新規登録の方</p>
             <%= simple_format link_to "新規登録", new_user_registration_path, class: "btn btn-primary" %>
           </div>
           <div class="col">
-            アカウントをお持ちの方
+            <p>アカウントをお持ちの方</p> 
             <%= simple_format link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
           </div>
         </div>
@@ -38,7 +38,7 @@
     <%= render partial: "posts/list", locals: {posts: @posts} %>
   </div>
   <div class="col-4">
-    <p class="h5 mb-2">communities</p>
+    <p class="h5 mb-2">コミュニティ</p>
     <div class="card">
       <ul class="list-group list-group-flush">
         <% @communities.each do |community| %>
