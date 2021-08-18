@@ -22,6 +22,7 @@ class CommunitiesController < ApplicationController
     @community = Community.new(community_params)
     @community.user_id = current_user.id
     if @community.save
+      flash[:notice] = "コミュニティ「#{@community.name}」が作成されました！"
       redirect_to communities_path
     else
       render :new

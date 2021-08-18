@@ -1,9 +1,9 @@
 <% comments.each do |comment|%>
-  <div class="comment mb-2" id="comment-<%= comment.id%>">
-    <div class="card">
+  <div class="comment mb-2">
+    <div class="card" id="comment-<%= comment.id%>">
       <div class="row">
         <div class="col-1 text-center">
-          <div id="vote-actions-<%= comment.id %>" class="vote" data-id-type='["<%= comment.id %>", "<%= comment.class %>"]'>
+          <div id="vote-actions-<%= comment.class %>-<%= comment.id %>" class="vote" data-id-type='["<%= comment.id %>", "<%= comment.class %>"]'>
             <div class="fas fa-arrow-up upvote <%= is_upvoted(comment) %>"></div>
             <span class="fw-bold score"><%= comment.score %></span>
             <div class="fas fa-arrow-down downvote <%= is_downvoted(comment) %>"></div>

@@ -1,6 +1,6 @@
 class Community < ApplicationRecord
   belongs_to :user
-  validates_presence_of :url, :name, :description
+  validates_presence_of :url, :name, :description, :summary
   has_many :posts
   has_many :subscriptions
   has_many :subscribers, through: :subscriptions, source: :user
