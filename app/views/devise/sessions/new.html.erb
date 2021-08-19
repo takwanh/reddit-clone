@@ -23,6 +23,15 @@
   </div>
 <% end %>
 
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <p class="d-flex justify-content-center">テストユーザーとしてログインする</p>
+  <div class="mb-3 d-flex justify-content-center">
+    <%= f.hidden_field :email, value: "test@test.com" %>
+    <%= f.hidden_field :password, value: "test1234" %>
+    <%= f.submit 'テストログイン', class: "btn btn-primary" %>
+  </div>
+<% end %>
+
 <div class="d-flex justify-content-center">
   <%= render "devise/shared/links" %>
 </div>
